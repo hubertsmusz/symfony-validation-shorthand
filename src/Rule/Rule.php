@@ -8,6 +8,7 @@ class Rule
     public const RULE_REQUIRED    = 'required';
     public const RULE_BOOLEAN     = 'boolean';
     public const RULE_INTEGER     = 'integer';
+    public const RULE_NUMERIC     = 'numeric';
     public const RULE_FLOAT       = 'float';
     public const RULE_STRING      = 'string';
     public const RULE_ARRAY       = 'array';
@@ -32,6 +33,7 @@ class Rule
         self::RULE_BOOLEAN,
         self::RULE_INTEGER,
         self::RULE_FLOAT,
+        self::RULE_NUMERIC,
         self::RULE_STRING,
         self::RULE_ARRAY,
         self::RULE_ALPHA,

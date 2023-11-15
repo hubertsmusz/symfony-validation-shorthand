@@ -63,8 +63,10 @@ class ConstraintResolver
             case Rule::RULE_BOOLEAN:
                 return new Type\BooleanValue();
             case Rule::RULE_INTEGER:
-                return new Type\IntegerNumber();
+                return new Assert\Type('integer');
             case Rule::RULE_FLOAT:
+                return new Assert\Type('float');
+            case Rule::RULE_NUMERIC:
                 return new Type\FloatNumber();
             case Rule::RULE_STRING:
                 return new Assert\Type('string');
