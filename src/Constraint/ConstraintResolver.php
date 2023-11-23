@@ -120,6 +120,10 @@ class ConstraintResolver
             return new Assert\GreaterThanOrEqual($rule->getIntParam(0));
         }
 
+        if ($ruleList->hasRule([Rule::RULE_ARRAY])) {
+            return new Assert\Count(['min' => $rule->getIntParam(0)]);
+        }
+
         return new Assert\Length(['min' => $rule->getIntParam(0)]);
     }
 
@@ -134,6 +138,10 @@ class ConstraintResolver
 
         if ($ruleList->hasRule([Rule::RULE_INTEGER, Rule::RULE_FLOAT])) {
             return new Assert\LessThanOrEqual($rule->getIntParam(0));
+        }
+
+        if ($ruleList->hasRule([Rule::RULE_ARRAY])) {
+            return new Assert\Count(['max' => $rule->getIntParam(0)]);
         }
 
         return new Assert\Length(['max' => $rule->getIntParam(0)]);
