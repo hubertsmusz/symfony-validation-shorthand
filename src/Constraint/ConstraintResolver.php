@@ -67,7 +67,7 @@ class ConstraintResolver
             case Rule::RULE_FLOAT:
                 return new Assert\Type('float');
             case Rule::RULE_NUMERIC:
-                return new Type\FloatNumber();
+                return new Type\NumericValue();
             case Rule::RULE_STRING:
                 return new Assert\Type('string');
             case Rule::RULE_ARRAY:

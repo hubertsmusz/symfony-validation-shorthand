@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace DigitalRevolution\SymfonyValidationShorthand\Tests\Unit\Constraint\Type;
 
-use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\FloatNumber;
-use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\FloatNumberValidator;
+use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\NumericValue;
+use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\NumericValueValidator;
 use DigitalRevolution\SymfonyValidationShorthand\Tests\Mock\MockFactory;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -13,24 +13,24 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Validation;
 
 /**
- * @coversDefaultClass \DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\FloatNumberValidator
+ * @coversDefaultClass \DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\NumericValueValidator
  */
-class FloatNumberValidatorTest extends TestCase
+class NumericValueValidatorTest extends TestCase
 {
     /** @var ExecutionContext */
     private $context;
 
-    /** @var FloatNumberValidator */
+    /** @var NumericValueValidator */
     private $validator;
 
-    /** @var FloatNumber */
+    /** @var NumericValue */
     private $constraint;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->constraint = new FloatNumber();
-        $this->validator  = new FloatNumberValidator();
+        $this->constraint = new NumericValue();
+        $this->validator  = new NumericValueValidator();
         $this->context    = new ExecutionContext(Validation::createValidator(), 'root', MockFactory::createTranslator($this));
         $this->context->setConstraint($this->constraint);
         $this->validator->initialize($this->context);

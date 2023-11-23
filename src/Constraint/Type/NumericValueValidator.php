@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
-class FloatNumberValidator extends ConstraintValidator
+class NumericValueValidator extends ConstraintValidator
 {
     /**
      * @param mixed $value
@@ -15,8 +15,8 @@ class FloatNumberValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint): void
     {
-        if ($constraint instanceof FloatNumber === false) {
-            throw new UnexpectedTypeException($constraint, FloatNumber::class);
+        if ($constraint instanceof NumericValue === false) {
+            throw new UnexpectedTypeException($constraint, NumericValue::class);
         }
 
         if ($value === null || is_int($value) || is_float($value)) {

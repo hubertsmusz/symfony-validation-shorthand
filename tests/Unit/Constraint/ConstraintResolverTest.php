@@ -5,7 +5,7 @@ namespace DigitalRevolution\SymfonyValidationShorthand\Tests\Unit\Constraint;
 
 use DigitalRevolution\SymfonyValidationShorthand\Constraint\ConstraintResolver;
 use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\BooleanValue;
-use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\FloatNumber;
+use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\NumericValue;
 use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\InConstraint;
 use DigitalRevolution\SymfonyValidationShorthand\Constraint\Type\IntegerNumber;
 use DigitalRevolution\SymfonyValidationShorthand\Rule\InvalidRuleException;
@@ -75,7 +75,7 @@ class ConstraintResolverTest extends TestCase
         yield 'rule + constraint' => [[new Assert\NotBlank(), new Assert\NotNull()],[new Rule('required'), new Assert\NotBlank()]];
         yield 'boolean' => [[new BooleanValue(), new Assert\NotNull()], [new Rule('boolean')]];
         yield 'integer' => [[new IntegerNumber(), new Assert\NotNull()], [new Rule('integer')]];
-        yield 'float' => [[new FloatNumber(), new Assert\NotNull()], [new Rule('float')]];
+        yield 'float' => [[new NumericValue(), new Assert\NotNull()], [new Rule('float')]];
         yield 'array' => [[new Assert\Type('array'), new Assert\NotNull()], [new Rule('array')]];
         yield 'string' => [[new Assert\Type('string'), new Assert\NotNull()], [new Rule('string')]];
         yield 'alpha' => [[new Assert\Regex(['pattern' => '/^[a-zA-Z]*$/']), new Assert\NotNull()], [new Rule('alpha')]];
